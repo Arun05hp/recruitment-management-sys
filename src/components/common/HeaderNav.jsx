@@ -9,11 +9,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CloseOutlined from "@material-ui/icons/CloseOutlined";
 import React from "react";
 
-const drawerWidth = 200;
-
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -31,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const HeaderNav = ({ open, handleToggleDrawer }) => {
   const classes = useStyles();
   return (
-    <AppBar position="absolute" className={classes.appBar}>
+    <AppBar position="relative" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         <IconButton
           edge="start"

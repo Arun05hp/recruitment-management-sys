@@ -16,11 +16,14 @@ import AppRoutes from "./router/AppRoutes";
 // import CompanyDetails from './1-companies/CompanyDetails';
 
 const useStyles = makeStyles((theme) => ({
-  root: { display: "flex" },
+  wrapper: { height: "100vh", display: "flex", flexDirection: "column" },
+  root: { display: "flex", flex: 1 },
   container: {
+    flex: 1,
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
+  contentBox: { display: "flex", flexDirection: "column", flex: 1 },
 }));
 
 function App() {
@@ -33,15 +36,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <CssBaseline />
-      <HeaderNav open={open} handleToggleDrawer={handleToggleDrawer} />
-      <div className={classes.root}>
-        <SideDrawer open={open} handleToggleDrawer={handleToggleDrawer} />
-        <div>
-          <Container maxWidth="lg" className={classes.container}>
-            <AppRoutes />
-          </Container>
-          <Footer />
+      <div className={classes.wrapper}>
+        <CssBaseline />
+        <HeaderNav open={open} handleToggleDrawer={handleToggleDrawer} />
+        <div className={classes.root}>
+          <SideDrawer open={open} handleToggleDrawer={handleToggleDrawer} />
+          <div className={classes.contentBox}>
+            <Container maxWidth="lg" className={classes.container}>
+              <AppRoutes />
+            </Container>
+            <Footer />
+          </div>
         </div>
       </div>
     </BrowserRouter>
